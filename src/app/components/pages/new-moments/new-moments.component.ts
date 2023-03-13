@@ -3,7 +3,8 @@ import { Moment } from '../../moment'
 
 
 import { MomentService } from 'src/app/services/moment.service'
-import { Subscriber } from 'rxjs'
+import { MessagesComponent } from '../../messages/messages.component'
+import { MessagesService } from 'src/app/services/messages.service'
 
 @Component({
   selector: 'app-new-moments',
@@ -13,7 +14,7 @@ import { Subscriber } from 'rxjs'
 export class NewMomentsComponent {
   btnText = "Compartilhar!"
 
-  constructor (private momentService: MomentService) {}
+  constructor (private momentService: MomentService, private messagesService: MessagesService) {}
 
   async creatHandler(moment: Moment){
     const formData = new FormData()
@@ -25,6 +26,8 @@ export class NewMomentsComponent {
       formData.append('image', moment.image)
     }
 await this.momentService.createMoment(formData).subscribe()
+
+this.messagesService.add('Momento adicionado com sucesso!')
 
   }
 
