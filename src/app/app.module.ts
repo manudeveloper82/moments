@@ -27,7 +27,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HomeComponent,
     NewMomentsComponent,
     MomentFormComponent,
-    MessagesComponent
+    MessagesComponent,
+    
   ],
   imports: [
     BrowserModule,
