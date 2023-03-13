@@ -1,6 +1,10 @@
 import { Component } from '@angular/core'
 import { Moment } from '../../moment'
 
+
+import { MomentService } from 'src/app/services/moment.service'
+import { Subscriber } from 'rxjs'
+
 @Component({
   selector: 'app-new-moments',
   templateUrl: './new-moments.component.html',
@@ -8,6 +12,8 @@ import { Moment } from '../../moment'
 })
 export class NewMomentsComponent {
   btnText = "Compartilhar!"
+
+  constructor (private momentService: MomentService) {}
 
   async creatHandler(moment: Moment){
     const formData = new FormData()
@@ -18,6 +24,7 @@ export class NewMomentsComponent {
     if (moment.image) {
       formData.append('image', moment.image)
     }
+await this.momentService.createMoment(formData).subscribe()
 
   }
 
