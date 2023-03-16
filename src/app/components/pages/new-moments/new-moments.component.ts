@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Moment } from '../../moment'
+
 
 import { Router } from '@angular/router'
 
@@ -7,6 +7,7 @@ import { Router } from '@angular/router'
 import { MomentService } from 'src/app/services/moment.service'
 import { MessagesComponent } from '../../messages/messages.component'
 import { MessagesService } from 'src/app/services/messages.service'
+import { Moment } from 'src/app/Moment'
 
 @Component({
   selector: 'app-new-moments',
