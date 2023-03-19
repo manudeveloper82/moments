@@ -17,10 +17,14 @@ export class HomeComponent {
   moments: Moment[] = []
   baseApiUrl = environment.baseApiUrl
 
+  faSearch= faSearch
+  SearchTerm: string = ''
+
   constructor (private momentService: MomentService) {}
 
   ngOnInit(): void {
     this.momentService.getMoments().subscribe((items)=> {
+      console.log(items)
 
       const data = items.data
 
@@ -31,6 +35,14 @@ export class HomeComponent {
       })
       this.allMoments = data
     this.moments = data
+    })
+  }
+  search(e: Event): void {
+    const target = e.target as HTMLInputElement
+    const value = target.value
+
+    this.moments = this.allMoments.filter((moment) => {
+     return moment.title.toLowerCase().includes(value)
     })
   }
 }
