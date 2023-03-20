@@ -10,6 +10,9 @@ import { Moment } from 'src/app/Moment';
 export class MomentFormComponent {
   @Output() onSubmit = new EventEmitter<Moment>()
   @Input() btnText!: string
+  @Input() momentData: Moment | null = null
+  momentForm!:FormGroup
+  
 
   ngOnInit(): void{
     this.momentForm= new FormGroup({
@@ -34,8 +37,6 @@ export class MomentFormComponent {
     this.momentForm.patchValue({ image: file });
   }
 
-
-  momentForm!: FormGroup
 
   submit() {
     if(this.momentForm.invalid) {
