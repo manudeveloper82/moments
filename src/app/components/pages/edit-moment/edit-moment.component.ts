@@ -16,10 +16,10 @@ import { MessagesService } from 'src/app/services/messages.service';
 export class EditMomentComponent {
   moment!: Moment
   btnText: string = 'Editar'
-  
+
 
   constructor(
-    private momentService: MomentService, 
+    private momentService: MomentService,
     private route: ActivatedRoute,
     private messagesService: MessagesService,
     private router: Router
@@ -33,7 +33,7 @@ export class EditMomentComponent {
     })
   }
 
-   async editHandler(momentData:any){
+   async editHandler(momentData:Moment){
     const id = this.moment.id
 
     const formData = new FormData()
