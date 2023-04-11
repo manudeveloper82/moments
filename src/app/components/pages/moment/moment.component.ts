@@ -83,6 +83,10 @@ async onSubmit(formDirective: FormGroupDirective){
   .createComent(data)
   .subscribe((coment) => this.comments.push(coment.data))
 
+  this.comentForm.reset()
+
+  formDirective.resetForm()
+
 }
 
 }

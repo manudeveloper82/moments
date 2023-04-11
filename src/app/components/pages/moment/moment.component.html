@@ -19,7 +19,7 @@
     </button>
   </div>
   <div class="coments">
-    <h3> Comentarios:{{comments ? comments.length: [0]}}</h3>
+    <h3> Comentarios:{{comments ? comments.length: 0 }}</h3>
     <div *ngIf="comments && comments.length > 0; else noComents">
       <div class=" coment-container" *ngFor=" let coment of comments">
         <p class="coment">{{coment.text}}</p>
