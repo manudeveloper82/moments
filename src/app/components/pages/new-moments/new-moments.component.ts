@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 
 
 import { Router } from '@angular/router'
@@ -14,7 +14,7 @@ import { Moment } from 'src/app/Moment'
   templateUrl: './new-moments.component.html',
   styleUrls: ['./new-moments.component.css']
 })
-export class NewMomentsComponent {
+export class NewMomentsComponent implements OnInit {
   btnText = "Compartilhar!"
 
   constructor (
@@ -22,6 +22,9 @@ export class NewMomentsComponent {
     private messagesService: MessagesService,
     private router: Router
     ) {}
+  ngOnInit(): void {
+    throw new Error('Method not implemented.')
+  }
 
   async creatHandler(moment: Moment){
     const formData = new FormData()
